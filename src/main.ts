@@ -34,14 +34,34 @@ type Dipendente = {
   contratto: "indeterminato" | "determinato" | "freelance";
 }
 
-const dipendente1: Dipendente = {
-  nome: 'Giovanni',
-  cognome: 'Bianchi',
-  annoNascita: 1990,
-  sesso: 'm',
-  anniDiServizio: [2010, 2011, 2013, 2017],
-  emailAziendale: 'giovanni.bianchi@azienda.com',
-  contratto: 'indeterminato'
-};
+//Snack 3
+type Developer = Dipendente & {
+  livelloEsperienza: 'junior' | 'mid' | 'senior';
+  linguaggi?: string[];
+  certificazioni: string[];
+}
 
-console.log(dipendente1);
+type ProjectManager = Dipendente & {
+  teamSize: number | null;
+  budgetGestito?: number;
+  stakeholderPrincipali: string[];
+}
+
+type Team = {
+  nome: string;
+  progettoAttuale: string | null;
+  budget: number;
+  membri: [ProjectManager, ...Developer[]];
+}
+
+// const dipendente1: Dipendente = {
+//   nome: 'Giovanni',
+//   cognome: 'Bianchi',
+//   annoNascita: 1990,
+//   sesso: 'm',
+//   anniDiServizio: [2010, 2011, 2013, 2017],
+//   emailAziendale: 'giovanni.bianchi@azienda.com',
+//   contratto: 'indeterminato'
+// };
+
+// console.log(dipendente1);
